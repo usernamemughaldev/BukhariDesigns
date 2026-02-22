@@ -312,6 +312,13 @@ export function Hero() {
     }
   };
 
+  const scrollToContact = () => {
+    const contactSection = document.getElementById('contact');
+    if (contactSection) {
+      contactSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <section
       ref={sectionRef}
@@ -369,16 +376,21 @@ export function Hero() {
             </span>
           </button>
 
-          <a
-            href="https://www.freelancer.com/u/Bukhari690"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="magnetic-btn px-8 py-4 border border-border hover:border-primary text-muted-foreground hover:text-foreground rounded-full font-medium text-lg transition-all duration-300 flex items-center gap-2"
+          <button
+            onClick={scrollToContact}
+            className="magnetic-btn px-8 py-4 border border-border hover:border-primary text-muted-foreground hover:text-foreground rounded-full font-medium text-lg transition-all duration-300 flex items-center gap-2 group"
             data-cursor-hover
           >
-            Hire on Freelancer
-            <ExternalLink className="w-5 h-5" />
-          </a>
+            Get in Touch
+            <svg
+              className="w-5 h-5 transition-transform duration-300 group-hover:rotate-45"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+            </svg>
+          </button>
         </div>
       </div>
 
