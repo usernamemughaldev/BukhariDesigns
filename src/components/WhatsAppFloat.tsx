@@ -10,13 +10,13 @@ export function WhatsAppFloat() {
         if (!button) return;
 
         // Pulse animation
-        gsap.to(button, {
-            scale: 1.1,
-            duration: 0.8,
-            repeat: -1,
-            yoyo: true,
-            ease: 'sine.inOut',
-        });
+        // gsap.to(button, {
+        //     scale: 1.1,
+        //     duration: 0.8,
+        //     repeat: -1,
+        //     yoyo: true,
+        //     ease: 'sine.inOut',
+        // });
 
         // Initial entrance
         gsap.fromTo(
@@ -45,3 +45,4 @@ export function WhatsAppFloat() {
         </a>
     );
 }
+
