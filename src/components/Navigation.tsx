@@ -3,6 +3,7 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Menu, X, ExternalLink } from 'lucide-react';
 import { ThemeToggle } from './ThemeToggle';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -18,6 +19,9 @@ export function Navigation() {
   const navRef = useRef<HTMLElement>(null);
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const location = useLocation();
+  const navigate = useNavigate();
+  const isHome = location.pathname === '/' || location.pathname === '';
 
   useEffect(() => {
     const nav = navRef.current;
@@ -45,6 +49,11 @@ export function Navigation() {
   const handleLinkClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     e.preventDefault();
     setIsMobileMenuOpen(false);
+
+    if (!isHome) {
+      navigate('/' + href);
+      return;
+    }
 
     const target = document.querySelector(href);
     if (target) {

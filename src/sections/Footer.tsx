@@ -2,12 +2,16 @@ import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { ArrowUp, Heart } from 'lucide-react';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 gsap.registerPlugin(ScrollTrigger);
 
 export function Footer() {
   const footerRef = useRef<HTMLElement>(null);
   const buttonRef = useRef<HTMLButtonElement>(null);
+  const location = useLocation();
+  const navigate = useNavigate();
+  const isHome = location.pathname === '/' || location.pathname === '';
 
   useEffect(() => {
     const footer = footerRef.current;
@@ -71,6 +75,18 @@ export function Footer() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
+  const handleLinkClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    e.preventDefault();
+    if (!isHome) {
+      navigate('/' + href);
+      return;
+    }
+    const target = document.querySelector(href);
+    if (target) {
+      target.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   const navLinks = [
     { label: 'Home', href: '#hero' },
     { label: 'About', href: '#about' },
@@ -94,6 +110,7 @@ export function Footer() {
             <a
               href="#hero"
               className="font-heading text-2xl font-bold text-foreground inline-block mb-2"
+              onClick={(e) => handleLinkClick(e, '#hero')}
               data-cursor-hover
             >
               Bukhari<span className="text-primary">.</span>Designs
@@ -109,6 +126,7 @@ export function Footer() {
               <a
                 key={link.label}
                 href={link.href}
+                onClick={(e) => handleLinkClick(e, link.href)}
                 className="text-muted-foreground hover:text-foreground transition-colors duration-300 text-sm"
                 data-cursor-hover
               >

@@ -32,11 +32,11 @@ export function WhatsAppFloat() {
             href="https://wa.me/19189531562"
             target="_blank"
             rel="noopener noreferrer"
-            className="fixed bottom-8 right-8 z-[100] w-14 h-14 bg-[#25D366] text-white rounded-full flex items-center justify-center shadow-lg hover:shadow-[#25D366]/40 transition-shadow duration-300 group"
+            className="fixed bottom-6 right-6 sm:bottom-8 sm:right-8 z-[100] w-16 h-16 bg-[#25D366] text-white rounded-full flex items-center justify-center shadow-lg hover:shadow-[#25D366]/40 transition-shadow duration-300 group"
             aria-label="Chat on WhatsApp"
             data-cursor-hover
         >
-            <MessageCircle className="w-8 h-8 fill-white" />
+            <MessageCircle className="w-10 h-10 fill-white" />
 
             {/* Tooltip */}
             <div className="absolute right-full mr-4 px-4 py-2 bg-background border border-border rounded-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 whitespace-nowrap shadow-xl">

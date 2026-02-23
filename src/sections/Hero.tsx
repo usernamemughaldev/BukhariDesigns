@@ -339,10 +339,12 @@ export function Hero() {
       <div className="relative z-10 text-center px-4 sm:px-6 lg:px-8">
         <h1
           ref={headingRef}
-          className="font-heading text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-foreground mb-6 tracking-tight"
+          className="font-heading text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-foreground mb-6 tracking-tight flex flex-col sm:flex-row sm:justify-center"
           style={{ perspective: '1000px' }}
         >
-          {splitText('BUKHARI DESIGNS')}
+          <span className="block">{splitText('BUKHARI')}</span>
+          <span className="hidden sm:inline">&nbsp;</span>
+          <span className="block">{splitText('DESIGNS')}</span>
         </h1>
 
         <p
